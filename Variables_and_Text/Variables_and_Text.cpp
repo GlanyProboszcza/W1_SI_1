@@ -24,7 +24,8 @@ int main()
         //Pseudo-random integral value between ​0​ and RAND_MAX restricted to 100 by modulo operation
         battery_charge_status = rand() % 101;
 
-        //https://stackoverflow.com/questions/686353/random-float-number-generation 
+        /*Random float number generation - used for generating random value fro temperature, velocity and battery
+        * https://stackoverflow.com/questions/686353/random-float-number-generation */
         temperatue_celsius = -125 + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (200 + 125)));
         velocity = 0 + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (20 - 0)));
         
@@ -42,7 +43,9 @@ int main()
             cout << "\nBattery charge status is: \n" << battery_charge_status << "%" << endl;
         }
         else if (user_input == "3") {
+            //ASCII character used for display celsius as a character
             cout << "\nThe actual temperature on Mars: " << temperatue_celsius << char(248) << "C." << endl;
+            //To convert Celsius to Kelvin use the formula T (K) = T (°C) + 273.15
             temperature_kelvin = temperatue_celsius + 273.15;
             cout << "The actual temperature on Mars: " << temperature_kelvin << "K." << endl;
             cout << "\nVelocity of the rover is: " << velocity << "km/h" << endl;
