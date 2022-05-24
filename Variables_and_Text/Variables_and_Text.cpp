@@ -8,7 +8,7 @@ using namespace std;
 // initializing variables
 string robot_name, robot_status, user_input;
 int battery_charge_status;
-float temperatue, velocity;
+float temperatue_celsius, temperature_kelvin, velocity;
 
 int main()
 {
@@ -25,7 +25,7 @@ int main()
         battery_charge_status = rand() % 101;
 
         //https://stackoverflow.com/questions/686353/random-float-number-generation 
-        temperatue = -125 + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (200 + 125)));
+        temperatue_celsius = -125 + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (200 + 125)));
         velocity = 0 + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (20 - 0)));
         
         cout << "\nWhich number of variable to check?\n1. Robot's name\n2. Battery charge status\n3. Temperature and velocity\n4. Robot status\n5. EXIT\n" << endl;
@@ -42,7 +42,10 @@ int main()
             cout << "\nBattery charge status is: \n" << battery_charge_status << "%" << endl;
         }
         else if (user_input == "3") {
-            cout << "\nTemperature is: " << temperatue << char(248) <<"C.\nVelocity of the rover is: " << velocity << "km/h" << endl;
+            cout << "\nThe actual temperature on Mars: " << temperatue_celsius << char(248) << "C." << endl;
+            temperature_kelvin = temperatue_celsius + 273.15;
+            cout << "The actual temperature on Mars: " << temperature_kelvin << "K." << endl;
+            cout << "\nVelocity of the rover is: " << velocity << "km/h" << endl;
         }
         else if (user_input == "4") {
             cout << "\nRobot status: " << robot_status << endl;
