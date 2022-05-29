@@ -17,7 +17,9 @@ int main()
     robot_status = "Exploring"; // type of status: Exploring/Sampling/Returning/Idle
 
     // welcome sign
+    cout << "---------------------------------------------------------------" << endl;
     cout << "Hi! You are connected to program for checking your Mars rover." << endl;
+    cout << "---------------------------------------------------------------" << endl;
  
     
     do {        
@@ -29,33 +31,38 @@ int main()
         temperatue_celsius = -125 + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (200 + 125)));
         velocity = 0 + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (20 - 0)));
         
-        cout << "\nWhich number of variable to check?\n1. Robot's name\n2. Battery charge status\n3. Temperature and velocity\n4. Robot status\n5. EXIT\n" << endl;
-        cout << "I want check: ", cin >> user_input;
+        cout << "\nWhat would you like to check?\n1. Robot's name\n2. Battery charge status\n3. Temperature and velocity\n4. Robot status\n5. EXIT\n" << endl;
+        cout << "I want check >> ", cin >> user_input;
         
         if (user_input == "1") {
             cout << "\nRobot's name is: " << robot_name << endl;
             cout << "Change my name to: "; 
             cin >> robot_name;
             cout << "\nName changed to -------- " << robot_name << " --------" << endl;
+            cout << "---------------------------------------------------------------" << endl;
             cout << endl;
         }
         else if (user_input == "2") {
-            cout << "\nBattery charge status is: \n" << battery_charge_status << "%" << endl;
+            cout << "\n----> Battery charge status is: \n" << battery_charge_status << "%" << endl;
+            cout << "---------------------------------------------------------------" << endl;
         }
         else if (user_input == "3") {
             //ASCII character used for display celsius as a character
-            cout << "\nThe actual temperature on Mars: " << temperatue_celsius << char(248) << "C." << endl;
+            cout << "\n----> The actual temperature on Mars: " << temperatue_celsius << char(248) << "C." << endl;
             //To convert Celsius to Kelvin use the formula T (K) = T (°C) + 273.15
             temperature_kelvin = temperatue_celsius + 273.15;
-            cout << "The actual temperature on Mars: " << temperature_kelvin << "K." << endl;
-            cout << "\nVelocity of the rover is: " << velocity << "km/h" << endl;
+            cout << "----> The actual temperature on Mars: " << temperature_kelvin << "K." << endl;
+            cout << "\n----> Velocity of the rover is: " << velocity << "km/h" << endl;
+            cout << "---------------------------------------------------------------" << endl;
         }
         else if (user_input == "4") {
             cout << "\nRobot status: " << robot_status << endl;
             cout << "\nChange my status to [Exploring/Sampling/Returning/Idle]: ", cin >> robot_status;
             cout << "\nStatus changed to -------- " << robot_status << " --------" << endl;
+            cout << "---------------------------------------------------------------" << endl;
         }
         else if (user_input == "5") {
+            cout << "---------------------------------------------------------------" << endl;
             cout << "See you next time! Bye!" << endl;
             break;
         }
